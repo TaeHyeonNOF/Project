@@ -5,8 +5,6 @@ import numpy as np
 from numpy import exp
 import warnings
 from lmfit import Parameters, fit_report, minimize, Model
-import path
-import directory
 
 
 def polyfit(x, y, degree):
@@ -26,10 +24,10 @@ def IV(x, Is, vt):
     return Is * (exp(x / vt) - 1)
 
 
-def graph(route, select):
+def graph(path):
     with warnings.catch_warnings():
         warnings.simplefilter('ignore', np.RankWarning)
-        tree = parse(str(route))
+        tree = parse(str(path))
         root = tree.getroot()
         plt.figure(figsize=(16, 10))
 
@@ -119,28 +117,10 @@ def graph(route, select):
                 name = 'DCBias=' + str(wavelengthsweep.attrib['DCBias']) + 'V'
             plt.plot(l, il - ref(l), label=name)
 
-        image_path = route.replace("\\", "/").split("/")
-        sub_path = ''
-        for i in range(-4, -1):
-            sub_path += '/' + image_path[i]
+        image_path = path.replace("\\", "/").split("/")
         plt.legend(loc='lower right')
         plt.xlabel('Wavelength[nm]')
         plt.ylabel('Transmissions[dB]')
         plt.title('Transmission spectra - fitted')
-        save_path = path.path() + '/result/graph/lot' + sub_path
-        directory.create_folder(save_path)
-
-        if select == 'Show':
-            plt.show()
-
-        elif select == 'Save':
-            plt.savefig(save_path + '/' + image_path[-1] + '.png')
-
-        elif select == 'Show and Save':
-            plt.show()
-            plt.savefig(save_path + '/' + image_path[-1] + '.png')
-
-        else:
-            raise ValueError('check again.')
-
+        plt.savefig(r'C:/Users/eddie/OneDrive/바탕 화면/graph/' + image_path[-1] + '.png')
         plt.clf()
