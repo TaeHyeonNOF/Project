@@ -26,7 +26,7 @@ def IV(x, Is, vt):
     return Is * (exp(x / vt) - 1)
 
 
-def graph(route, option):
+def graph(route, save, show):
     with warnings.catch_warnings():
         warnings.simplefilter('ignore', np.RankWarning)
         tree = parse(str(route))
@@ -130,17 +130,8 @@ def graph(route, option):
         save_path = path.path() + '/result/graph/lot' + sub_path
         directory.create_folder(save_path)
 
-        if option == 'Show':
+        if show is True:
             plt.show()
-
-        elif option == 'Save':
+        if save is True:
             plt.savefig(save_path + '/' + image_path[-1] + '.png')
-
-        elif option == 'Show and Save':
-            plt.show()
-            plt.savefig(save_path + '/' + image_path[-1] + '.png')
-
-        else:
-            raise ValueError('Check Graph Option')
-
         plt.close()
