@@ -16,9 +16,6 @@
 ***
 We have created a module to extract and analyze customer-supplied data, especially a project to show and save information in graphs and csv files to make modulation performance of the modulator easier to see.
 
-#### About PE
-**If you use this README.md , you can use this function**
--  
 
 ## Prerequisite 설치해야할 소프트웨어
 ***
@@ -63,8 +60,11 @@ Usage Example을 함께 작성
 중요한 코드 파일들 몇 개를 대상으로 해당 파일이 어떠한 역할을 하는 파일인지를 간단히 설명해주면 전반적인 맥락을 파악하기에 좋을 것 같아 추가하였다.
 -->
 
-## Contributing - 사용자가 질문 할 수 있는 위치 지정 버그 생길시
-이거는 좀 더 찾아봄 방법은 공부하긴했는데 오늘 내일 중으로 할게 
+## Contributing
+If you have any errors or questions while using the code, please send an email to the address below.
+- eddienoh@hanyang.ac.kr
+- masse0317@hanyang.ac.kr
+- hyeran245@hanyang.ac.kr
 <!-- 
 license 기입하기
 -->
